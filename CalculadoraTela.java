@@ -5,182 +5,65 @@
 package br.com.ufpr.tads.calculadora.tela;
 
 import javax.swing.JOptionPane;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+
+
 
 /**
  *
  * @author User
  */
-public class CalculadoraTela extends javax.swing.JFrame {
+public class CalculadoraTela extends javax.swing.JFrame  {
 
-    enum EstadoCalculadora {
-        INICIAL,
-        IGNORADO,
-        ENTRADA1,
-        OPERADOR,
-        ENTRADA2,
-        CALCULANDO
-    };
-
-    private EstadoCalculadora estadoCalc = EstadoCalculadora.INICIAL;
-    private int num1 = 0, num2 = 0;
-    private char sinal;
-
-    public void setNum1(String num) {
-        this.num1 = Integer.parseInt(num);
-    }
-
-    public void setSinal(char nSinal
-    ) {
-
-        this.sinal = nSinal;
-    }
     
-    public void setStatus(Integer nStatus){
+
+   
+    
+    public String getText(){
             
-          switch (numero){
-            case 1:
-                System.out.println("Dez");
-                break;
-            case 2:
-                System.out.println("Numero muito grande");
-                break;
-
-        }
-    
-    };
-
-    public boolean checaCampoZerado() {
-        String conteudo = texto_exibicao.getText();
-        return conteudo.equals("0") ? true : false;
-
+        return exibicao.getText();
+        
     }
+    
+    public void setText(String texto){
+        exibicao.setText(texto);
+    }
+  
+
+  
+
+    ;
+
+    
 
     public CalculadoraTela() {
         initComponents();
-        btn_0.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                String conteudo = texto_exibicao.getText();
-                if (checaCampoZerado()) {
-                    texto_exibicao.setText("0");
-                } else {
-                    texto_exibicao.setText(conteudo + '0');
-                }
+        CalculadoraBotoes bot = new CalculadoraBotoes(this);
+        btn_13.addActionListener(bot);
+        btn_2.addActionListener(bot);
+        btn_3.addActionListener(bot);
+        btn_4.addActionListener(bot);
+        btn_5.addActionListener(bot);
+        btn_6.addActionListener(bot);
+        btn_12.addActionListener(bot);
+        btn_8.addActionListener(bot);
+        btn_9.addActionListener(bot);
+        btn_plus.addActionListener(bot);
+        btn_minus.addActionListener(bot);
+        btn_div.addActionListener(bot);
+        btn_X.addActionListener(bot);
+        btn_0.addActionListener(bot);
+        btn_igual.addActionListener(bot);
+        btn_c.addActionListener(bot);
 
-            }
-        });
-
-        btn_1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                String conteudo = texto_exibicao.getText();
-                if (checaCampoZerado()) {
-                    conteudo = "";
-                }
-
-                texto_exibicao.setText(conteudo + '1');
-
-            }
-        });
-
-        btn_2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                String conteudo = texto_exibicao.getText();
-                if (checaCampoZerado()) {
-                    conteudo = "";
-                }
-                texto_exibicao.setText(conteudo + '2');
-
-            }
-        });
-
-        btn_3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                String conteudo = texto_exibicao.getText();
-                if (checaCampoZerado()) {
-                    conteudo = "";
-                }
-                texto_exibicao.setText(conteudo + '3');
-
-            }
-        });
-
-        btn_4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                String conteudo = texto_exibicao.getText();
-                if (checaCampoZerado()) {
-                    conteudo = "";
-                }
-                texto_exibicao.setText(conteudo + '4');
-
-            }
-        });
-
-        btn_5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                String conteudo = texto_exibicao.getText();
-                if (checaCampoZerado()) {
-                    conteudo = "";
-                }
-                texto_exibicao.setText(conteudo + '5');
-
-            }
-        });
-
-        btn_6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                String conteudo = texto_exibicao.getText();
-                if (checaCampoZerado()) {
-                    conteudo = "";
-                }
-                texto_exibicao.setText(conteudo + '6');
-
-            }
-        });
-
-        btn_7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                String conteudo = texto_exibicao.getText();
-                if (checaCampoZerado()) {
-                    conteudo = "";
-                }
-                texto_exibicao.setText(conteudo + '7');
-
-            }
-        });
-
-        btn_8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                String conteudo = texto_exibicao.getText();
-                if (checaCampoZerado()) {
-                    conteudo = "";
-                }
-                texto_exibicao.setText(conteudo + '8');
-
-            }
-        });
-
-        btn_9.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                String conteudo = texto_exibicao.getText();
-                if (checaCampoZerado()) {
-                    conteudo = "";
-                }
-                texto_exibicao.setText(conteudo + '9');
-
-            }
-        });
-
-        btn_plus.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                String conteudo = texto_exibicao.getText();
-
-                texto_exibicao.setText(conteudo + '+');
-                setSinal('+');
-
-            }
-        });
+       
 
     }
 
+   
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -197,7 +80,7 @@ public class CalculadoraTela extends javax.swing.JFrame {
         jPanel5 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
-        btn_7 = new javax.swing.JButton();
+        btn_12 = new javax.swing.JButton();
         btn_8 = new javax.swing.JButton();
         btn_9 = new javax.swing.JButton();
         btn_plus = new javax.swing.JButton();
@@ -205,7 +88,7 @@ public class CalculadoraTela extends javax.swing.JFrame {
         btn_5 = new javax.swing.JButton();
         btn_6 = new javax.swing.JButton();
         btn_minus = new javax.swing.JButton();
-        btn_1 = new javax.swing.JButton();
+        btn_13 = new javax.swing.JButton();
         btn_2 = new javax.swing.JButton();
         btn_3 = new javax.swing.JButton();
         btn_X = new javax.swing.JButton();
@@ -213,7 +96,7 @@ public class CalculadoraTela extends javax.swing.JFrame {
         btn_igual = new javax.swing.JButton();
         btn_c = new javax.swing.JButton();
         btn_div = new javax.swing.JButton();
-        texto_exibicao = new javax.swing.JTextField();
+        exibicao = new javax.swing.JTextField();
 
         jTextField1.setText("jTextField1");
 
@@ -263,13 +146,13 @@ public class CalculadoraTela extends javax.swing.JFrame {
 
         jPanel3.setLayout(new java.awt.GridLayout(4, 4));
 
-        btn_7.setText("7");
-        btn_7.addActionListener(new java.awt.event.ActionListener() {
+        btn_12.setText("7");
+        btn_12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_7ActionPerformed(evt);
+                btn_12ActionPerformed(evt);
             }
         });
-        jPanel3.add(btn_7);
+        jPanel3.add(btn_12);
 
         btn_8.setText("8");
         btn_8.addActionListener(new java.awt.event.ActionListener() {
@@ -327,13 +210,13 @@ public class CalculadoraTela extends javax.swing.JFrame {
         });
         jPanel3.add(btn_minus);
 
-        btn_1.setText("1");
-        btn_1.addActionListener(new java.awt.event.ActionListener() {
+        btn_13.setText("1");
+        btn_13.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_1ActionPerformed(evt);
+                btn_13ActionPerformed(evt);
             }
         });
-        jPanel3.add(btn_1);
+        jPanel3.add(btn_13);
 
         btn_2.setText("2");
         btn_2.addActionListener(new java.awt.event.ActionListener() {
@@ -391,10 +274,10 @@ public class CalculadoraTela extends javax.swing.JFrame {
         });
         jPanel3.add(btn_div);
 
-        texto_exibicao.setText("0");
-        texto_exibicao.addActionListener(new java.awt.event.ActionListener() {
+        exibicao.setText("0");
+        exibicao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                texto_exibicaoActionPerformed(evt);
+                exibicaoActionPerformed(evt);
             }
         });
 
@@ -407,14 +290,14 @@ public class CalculadoraTela extends javax.swing.JFrame {
                     .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(31, 31, 31)
-                        .addComponent(texto_exibicao, javax.swing.GroupLayout.PREFERRED_SIZE, 527, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(exibicao, javax.swing.GroupLayout.PREFERRED_SIZE, 527, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(texto_exibicao, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(exibicao, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -447,9 +330,9 @@ public class CalculadoraTela extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_6ActionPerformed
 
-    private void btn_7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_7ActionPerformed
+    private void btn_12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_12ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btn_7ActionPerformed
+    }//GEN-LAST:event_btn_12ActionPerformed
 
     private void btn_minusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_minusActionPerformed
         // TODO add your handling code here:
@@ -487,13 +370,13 @@ public class CalculadoraTela extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_divActionPerformed
 
-    private void btn_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_1ActionPerformed
+    private void btn_13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_13ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btn_1ActionPerformed
+    }//GEN-LAST:event_btn_13ActionPerformed
 
-    private void texto_exibicaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_texto_exibicaoActionPerformed
+    private void exibicaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exibicaoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_texto_exibicaoActionPerformed
+    }//GEN-LAST:event_exibicaoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -533,14 +416,14 @@ public class CalculadoraTela extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_0;
-    private javax.swing.JButton btn_1;
+    private javax.swing.JButton btn_12;
+    private javax.swing.JButton btn_13;
     private javax.swing.JButton btn_14;
     private javax.swing.JButton btn_2;
     private javax.swing.JButton btn_3;
     private javax.swing.JButton btn_4;
     private javax.swing.JButton btn_5;
     private javax.swing.JButton btn_6;
-    private javax.swing.JButton btn_7;
     private javax.swing.JButton btn_8;
     private javax.swing.JButton btn_9;
     private javax.swing.JButton btn_X;
@@ -549,12 +432,16 @@ public class CalculadoraTela extends javax.swing.JFrame {
     private javax.swing.JButton btn_igual;
     private javax.swing.JButton btn_minus;
     private javax.swing.JButton btn_plus;
+    private javax.swing.JTextField exibicao;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField texto_exibicao;
     // End of variables declaration//GEN-END:variables
+
+  
+
+
 }
